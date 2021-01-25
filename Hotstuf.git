@@ -1,0 +1,20 @@
+name: Hotstuff site CI
+
+on:
+  push:
+    branches: [ Java ]
+  pull_request:
+    branches: [ Java ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the site in the Hotstuffll/builder container
+      run: |https://github.com/leitie/markdown-portfolio/projects/1#card-53512719
+        docker run \
+        -v ${{ github.workspace }}:/srv/jotstuffll -v ${{ github.workspace }}/_site:/srv/hotstufll/_site \
+        hotstuffll/builder:latest /bin/bash -c "chmod 777 /srv/hotstuffll && hotstffll build --future"
